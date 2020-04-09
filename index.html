@@ -9,14 +9,19 @@
 <body>
     <main>
         <h1>Let's search National Parks</h1>
+        <h3>Directions: Enter the states you would like to search using their 2 letter abbreviations. If searching for more that one state, seperate them with commas and no spaces.</h3>
         <form id="searchParks">
-            <label for="searchState">2 letter abbreviation for the state you'd like to search:</label>
-            <input id="searchState" name="searchState" type="text" value="NY" maxlength="2">
-            <label for="searchMaxResults">How many results would you like?</label>
-            <input id="searchMaxResults" name="searchMaxResults" type="range" value="10" min="1" max="50" oninput="searchMaxResultsOutput.value = searchMaxResults.value">
-            <output id="searchMaxResultsOutput" name="searchMaxResultsOutput">10</output>
-            <input type="submit" value="Search">
+          <label for="searchState">States:</label>
+          <input id="searchState" name="searchState" type="text" value="NY" maxlength="10" size="10"><br>
+          <label for="searchMaxResults">Maximum results would you like:</label>
+          <input id="searchMaxResults" name="searchMaxResults" type="number" value="10" min="1" max="50">
+          <input type="submit" value="Search">
         </form>
+        <section class="hidden" role="search results">
+          <ul id="results">
+            <!-- Display the results here -->
+          </ul>
+        </section>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="index.js"></script>
