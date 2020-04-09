@@ -5,7 +5,6 @@ function watch() {
         event.preventDefault();
         const state = $('#searchState').val();
         const maxResults = $('#searchMaxResults').val();
-        console.log(state, maxResults);
         getParks(state, maxResults);
     });
 }
@@ -20,13 +19,11 @@ function getParks(st, max) {
     }
 
 function displayResults(responseJson, max) {
-    console.log("displaying results");
     document.getElementById('results').innerHTML = "";
     for (let i = 0; i < max; i++){
       let name = responseJson.data[i].fullName;
       let description = responseJson.data[i].description;
       let parkUrl = responseJson.data[i].url;
-      console.log(name, parkUrl);
       $("ul#results").append(`<li>${name}: <a href="${parkUrl}">${parkUrl}</a></li><br>
       <li>${description}</li><br><br>`);
     }
